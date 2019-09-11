@@ -19,11 +19,12 @@ def scheduleme():
     # Get Text from / command
     raw_text = request.form.get('text')
     # Unwrap the text with regular expression
-    text_array = re.findall(r'“(.*?)“', raw_text)
+    text_array = re.findall(r'"(.*?)"', raw_text)
     # Error handling
     if len(text_array) != 3:
         return 'The format is /scheduleme "[title]" "[start date & time]" "[end date & time]"'
         # Pull out event components: title, start, end = text_array
+
     title, start, end = text_array
     return f'Sweet I parsed the title: {title}, start: {start} and end: {end}'
 
