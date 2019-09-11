@@ -22,8 +22,8 @@ def scheduleme():
     if len(text_array) != 3:
         return 'The format is /scheduleme "[title]" "[start date & time]" "[end date & time]"'
         # Pull out event components: title, start, end = text_array
-        title, start, end = text_array
-        return 'Sweet I parsed the title: {title}, start: {start} and end: {end}'
+    title, start, end = text_array
+    return f'Sweet I parsed the title: {title}, start: {start} and end: {end}'
 
 if __name__ == '__main__':
     app.run(debug=True, port=PORT)
