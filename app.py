@@ -18,7 +18,6 @@ def homepage():
 
 @app.route('/scheduleme', methods=['POST'])
 def scheduleme():
-    return 'I would like to schedule that, but I haven"'"t quite figured out how..."
     # Get Text from / command
     raw_text = request.from_get('text')
     # Unwrap the text with regular expression
