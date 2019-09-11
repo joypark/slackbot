@@ -26,7 +26,7 @@ def scheduleme():
         # Pull out event components: title, start, end = text_array
 
     title, start, end = text_array
-    return f'Sweet I parsed the title: {title}, start: {start} and end: {end}'
+    # return f'Sweet I parsed the title: {title}, start: {start} and end: {end}'
 
     # Get the values for the config variables that we defined on Heroku
     calendar_id = os.environ.get('CALENDAR_ID')
