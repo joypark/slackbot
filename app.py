@@ -26,6 +26,7 @@ def scheduleme():
         # Pull out event components: title, start, end = text_array
 
     title, start, end = text_array
+    return f'Sweet I parsed the title: {title}, start: {start} and end: {end}'
 
     # Get the values for the config variables that we defined on Heroku
     calendar_id = os.environ.get('CALENDAR_ID')
@@ -60,8 +61,6 @@ def scheduleme():
             return f'Error! Our response has a status of {response.status_code} and text {response.text}'
     except Exception as e:
         return f'An exception {e} occurred creating the event!'
-
-    return f'Sweet I parsed the title: {title}, start: {start} and end: {end}'
 
 
 if __name__ == '__main__':
