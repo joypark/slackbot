@@ -10,11 +10,9 @@ app = Flask(__name__)
 
 PORT = 4390
 
-
 @app.route('/')
 def homepage():
     return "Howdy hacker!!"
-
 
 @app.route('/scheduleme', methods=['POST'])
 def scheduleme():
@@ -27,7 +25,7 @@ def scheduleme():
         return 'The format is /scheduleme "[title]" "[start date & time]" "[end date & time]"'
         # Pull out event components: title, start, end = text_array
         title, start, end = text_array
-        return f'Sweet I parsed the title: {title}, start: {start} and end: {end}'
+        return 'Sweet I parsed the title: {title}, start: {start} and end: {end}'
 
 
 if __name__ == '__main__':
