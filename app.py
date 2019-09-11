@@ -1,13 +1,11 @@
 from flask import Flask
-from flask import Flask, request import re
+from flask import Flask, request
+import re
 import os
 import dateparser
 import requests
-
-app = Flask(__name__)
-
 # EUwWh3BEQMmvR745q2wxC3WADuZzXb
-
+app = Flask(__name__)
 PORT = 4390
 
 @app.route('/')
@@ -26,7 +24,6 @@ def scheduleme():
         # Pull out event components: title, start, end = text_array
         title, start, end = text_array
         return 'Sweet I parsed the title: {title}, start: {start} and end: {end}'
-
 
 if __name__ == '__main__':
     app.run(debug=True, port=PORT)
