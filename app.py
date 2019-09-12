@@ -20,7 +20,7 @@ def scheduleme():
     # Unwrap the text with regular expression
     text_array = re.findall(r'"(.*?)"', raw_text)
     # Error handling
-    if len(text_array) != (3 or 4):
+    if (len(text_array) !=3 or len(text_array) != 4):
         return 'The format is /scheduleme "[title]" "[start date & time]" "[end date & time]"'
         # Pull out event components: title, start, end = text_array
 
