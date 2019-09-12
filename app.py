@@ -24,7 +24,7 @@ def scheduleme():
         return 'The format is /scheduleme "[title]" "[start date & time]" "[end date & time]"'
         # Pull out event components: title, start, end = text_array
 
-    title, start, end, body = text_array
+    title, start, end = text_array
     # return f'Sweet I parsed the title: {title}, start: {start} and end: {end}'
 
     # Get the values for the config variables that we defined on Heroku
@@ -34,7 +34,7 @@ def scheduleme():
     assert access_token is not None, 'Missing `ACCESS_TOKEN` config variable'
     timezone = os.environ.get('TIMEZONE')
     assert timezone is not None, 'Missing `TIMEZONE` config variable'
-    body = os.environ.get('BODY')
+    # body = os.environ.get('BODY')
 
     timezone_settings = {
         'TIMEZONE': timezone,
@@ -49,7 +49,7 @@ def scheduleme():
                 'start_time': int(dateparser.parse(start, settings=timezone_settings).timestamp()),
                 'end_time': int(dateparser.parse(end, settings=timezone_settings).timestamp())
             },
-        'body': body
+        #'body': body
     }
     headers = {
         'authorization': access_token
