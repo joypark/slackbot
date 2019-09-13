@@ -46,7 +46,9 @@ def scheduleme():
     json = {
         'calendar_id': calendar_id,
 
-        'title': title, 'when': {
+        'title': title,
+
+        'when': {
             'start_time': int(dateparser.parse(start, settings=timezone_settings).timestamp()),
             'end_time': int(dateparser.parse(end, settings=timezone_settings).timestamp())
         }
