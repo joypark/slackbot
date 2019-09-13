@@ -4,7 +4,6 @@ import dateparser
 import requests
 import os
 
-# EUwWh3BEQMmvR745q2wxC3WADuZzXb
 app = Flask(__name__)
 PORT = 4390
 
@@ -35,6 +34,8 @@ def scheduleme():
     assert access_token is not None, 'Missing `ACCESS_TOKEN` config variable'
     timezone = os.environ.get('TIMEZONE')
     assert timezone is not None, 'Missing `TIMEZONE` config variable'
+    # body = os.environ.get('BODY')
+
 
     timezone_settings = {
         'TIMEZONE': timezone,
@@ -44,10 +45,12 @@ def scheduleme():
     # json format for time and time zone
     json = {
         'calendar_id': calendar_id,
+
         'title': title, 'when': {
             'start_time': int(dateparser.parse(start, settings=timezone_settings).timestamp()),
             'end_time': int(dateparser.parse(end, settings=timezone_settings).timestamp())
         }
+        #'body': body
     }
     headers = {
         'authorization': access_token
